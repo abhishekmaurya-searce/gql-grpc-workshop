@@ -11,8 +11,10 @@ function GreetForm() {
     const greeting = () => {
       greet({
         variables: {
-          input:{firstName: firstName,
-          lastName: lastName,}
+          input:{
+            firstName: firstName,
+            lastName: lastName,
+          }
         },
       });
 
@@ -33,7 +35,8 @@ function GreetForm() {
             setLastName(e.target.value);
           }}
         />
-        <button onClick={greeting}> Create User</button>
+        <button onClick={greeting}>Greet</button>
+        {/* {greet && <p style={{ color: 'red' }}>{greet}</p>} */}
       </div>
     );
   }

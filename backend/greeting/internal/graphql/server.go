@@ -8,6 +8,7 @@ import (
 
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/handler/transport"
+	"github.com/99designs/gqlgen/graphql/playground"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )
@@ -43,8 +44,8 @@ func Server() {
 		),
 	)
 	serve.AddTransport(transport.POST{})
-
-	fmt.Println("Listening at localhost:8080/auth")
+	http.Handle("/", playground.Handler("GraphQL playground", "/greet"))
+	fmt.Println("Listening at localhost:8080/greet")
 	http.Handle("/greet", corsMiddleware(serve))
 	http.ListenAndServe(":8080", nil)
 }
