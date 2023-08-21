@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package gRPCGreet;
+
+option go_package = "greeting/internal/grpc/proto";
+
+message Req{
+    string firstname = 1;
+    string lastname = 2;
+
+}
+
+message Res{
+    string greeting = 1;
+
+}
+
+service GreetService{
+    rpc Greet(Req) returns (Res){}
+}

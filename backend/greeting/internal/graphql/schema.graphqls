@@ -1,0 +1,10 @@
+input UserInput {
+  firstname: String!
+  lastname: String!
+}
+type UserResponse {
+  result: String!
+}
+type Mutation {
+  greet(input: UserInput!): UserResponse!
+}
